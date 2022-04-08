@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LatestNewsTableViewController: UITableViewController {
+    
+    private var news: [News] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
