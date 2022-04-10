@@ -22,9 +22,19 @@ class LatestNewsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsCell
+        guard
+              let cell = tableView.dequeueReusableCell(
+                withIdentifier: "newsCell",
+                for: indexPath
+               ) as? NewsCell
+        else {
+            return UITableViewCell()
+            
+        }
+        
         let news = news[indexPath.row]
         cell.configure(with: news)
+          
         return cell
     }
     
