@@ -28,14 +28,14 @@ class LatestNewsTableViewController: UITableViewController {
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let selectedNewsVC = segue.destination as? SelectedNewsViewController else { return }
-        selectedNewsVC.news = sender as? News
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let news = news[indexPath.row]
         performSegue(withIdentifier: "showNews", sender: news)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedNewsVC = segue.destination as? SelectedNewsViewController else { return }
+        selectedNewsVC.news = sender as? News
     }
 }
 

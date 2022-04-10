@@ -12,6 +12,7 @@ class SelectedNewsViewController: UIViewController {
     @IBOutlet var newsImage: UIImageView!
     @IBOutlet var newsTitle: UILabel!
     @IBOutlet var newsDescription: UILabel!
+    @IBOutlet var newsAuthor: UILabel!
     
     var news: News!
     
@@ -20,10 +21,9 @@ class SelectedNewsViewController: UIViewController {
         showNewsDetails()
     }
         
-    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let newsWebVC = segue.destination as? NewsWebViewController else { return }
+        newsWebVC.newsUrl = news.readMoreUrl
     }
 
     @IBAction func readMore() {
@@ -35,6 +35,7 @@ extension SelectedNewsViewController {
     func showNewsDetails() {
         newsTitle.text = news.title
         newsDescription.text = news.content
+        newsAuthor.text = news.author
         
         guard let url = URL(string: news.imageUrl  ?? "") else { return }
         URLSession.shared.dataTask(with: url) { data, _, error in

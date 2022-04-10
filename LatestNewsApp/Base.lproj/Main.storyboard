@@ -91,7 +91,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8PI-nA-Bfn">
-                                <rect key="frame" x="16" y="349" width="288" height="63"/>
+                                <rect key="frame" x="16" y="349" width="288" height="91"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8v-iL-4bC">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="32.5"/>
@@ -105,10 +105,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgm-TC-1Oi">
+                                        <rect key="frame" x="0.0" y="73" width="288" height="18"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRv-WD-HoQ">
-                                <rect key="frame" x="217" y="420" width="87" height="33"/>
+                                <rect key="frame" x="217" y="448" width="87" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PRv-WD-HoQ" secondAttribute="height" multiplier="29:11" id="MZy-6W-Tcz"/>
                                 </constraints>
@@ -136,6 +142,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="K3T-ce-qWJ"/>
                     <connections>
+                        <outlet property="newsAuthor" destination="bgm-TC-1Oi" id="yAm-iM-OWv"/>
                         <outlet property="newsDescription" destination="tDc-ze-Fx4" id="Lbx-eU-M9U"/>
                         <outlet property="newsImage" destination="dFg-I5-eZu" id="mYy-c3-dPW"/>
                         <outlet property="newsTitle" destination="K8v-iL-4bC" id="mmZ-1q-CiU"/>

@@ -13,7 +13,6 @@
 		DE0C75B8280050C900FF10B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE0C75B6280050C900FF10B8 /* Main.storyboard */; };
 		DE0C75BA280050CA00FF10B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE0C75B9280050CA00FF10B8 /* Assets.xcassets */; };
 		DE0C75BD280050CA00FF10B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE0C75BB280050CA00FF10B8 /* LaunchScreen.storyboard */; };
-		DE0C75C5280065A800FF10B8 /* NewsWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C75C4280065A800FF10B8 /* NewsWebView.swift */; };
 		DE0C75C7280066DA00FF10B8 /* NewsWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C75C6280066DA00FF10B8 /* NewsWebViewController.swift */; };
 		DE0C75C9280067AD00FF10B8 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C75C8280067AD00FF10B8 /* News.swift */; };
 		DE0C75CB280074D900FF10B8 /* SelectedNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C75CA280074D900FF10B8 /* SelectedNewsViewController.swift */; };
@@ -30,7 +29,6 @@
 		DE0C75B9280050CA00FF10B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE0C75BC280050CA00FF10B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE0C75BE280050CA00FF10B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE0C75C4280065A800FF10B8 /* NewsWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWebView.swift; sourceTree = "<group>"; };
 		DE0C75C6280066DA00FF10B8 /* NewsWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWebViewController.swift; sourceTree = "<group>"; };
 		DE0C75C8280067AD00FF10B8 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		DE0C75CA280074D900FF10B8 /* SelectedNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 				DE0C75CA280074D900FF10B8 /* SelectedNewsViewController.swift */,
 				DE0C75C6280066DA00FF10B8 /* NewsWebViewController.swift */,
 				DE0C75CC2800776700FF10B8 /* NewsCell.swift */,
-				DE0C75C4280065A800FF10B8 /* NewsWebView.swift */,
 				DE0C75C8280067AD00FF10B8 /* News.swift */,
 				DE0C75CE280341A600FF10B8 /* NetworkManager.swift */,
 				DE0C75B2280050C900FF10B8 /* SceneDelegate.swift */,
@@ -161,7 +158,6 @@
 				DE0C75C9280067AD00FF10B8 /* News.swift in Sources */,
 				DE0C75CF280341A600FF10B8 /* NetworkManager.swift in Sources */,
 				DE0C75B1280050C900FF10B8 /* AppDelegate.swift in Sources */,
-				DE0C75C5280065A800FF10B8 /* NewsWebView.swift in Sources */,
 				DE0C75C7280066DA00FF10B8 /* NewsWebViewController.swift in Sources */,
 				DE0C75CD2800776700FF10B8 /* NewsCell.swift in Sources */,
 				DE0C75B3280050C900FF10B8 /* SceneDelegate.swift in Sources */,
