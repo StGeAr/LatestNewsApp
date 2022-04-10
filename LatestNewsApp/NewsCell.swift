@@ -27,6 +27,7 @@ class NewsCell: UITableViewCell {
 
             DispatchQueue.main.async {
                 self.newsImage.image = UIImage(data: data)
+                self.newsImage.layer.cornerRadius = self.newsImage.frame.height / 2
             }
         }.resume()
     }

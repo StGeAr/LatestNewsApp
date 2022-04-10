@@ -13,8 +13,10 @@ class LatestNewsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 110
         fetchNewsPage()
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         news.count
     }
@@ -24,6 +26,16 @@ class LatestNewsTableViewController: UITableViewController {
         let news = news[indexPath.row]
         cell.configure(with: news)
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedNewsVC = segue.destination as? SelectedNewsViewController else { return }
+        selectedNewsVC.news = sender as? News
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let news = news[indexPath.row]
+        performSegue(withIdentifier: "showNews", sender: news)
     }
 }
 
@@ -37,9 +49,8 @@ extension LatestNewsTableViewController {
                 return
             }
             do {
-                let someNews = try JSONDecoder().decode(NewsPage.self, from: data)
-                print(someNews)
-                self.news = someNews.data ?? []
+                let news = try JSONDecoder().decode(NewsPage.self, from: data)
+                self.news = news.data ?? []
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
