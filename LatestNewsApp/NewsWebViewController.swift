@@ -14,7 +14,7 @@ class NewsWebViewController: UIViewController {
     
     private var webView: WKWebView!
     
-    override func viewDidLoad() {
+    override func viewDidLoad() { 
         guard let url = URL(string: newsUrl) else { return }
         let request = URLRequest(url: url)
         webView.load(request)

@@ -23,7 +23,8 @@ class SelectedNewsViewController: UIViewController {
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let newsWebVC = segue.destination as? NewsWebViewController else { return }
-        newsWebVC.newsUrl = news.readMoreUrl
+        guard let someUrl = news.readMoreUrl else { return }
+        newsWebVC.newsUrl = someUrl
     }
 
     @IBAction func readMore() {
@@ -37,7 +38,7 @@ extension SelectedNewsViewController {
         newsDescription.text = news.content
         newsAuthor.text = news.author
         
-        guard let url = URL(string: news.imageUrl  ?? "") else { return }
+        guard let url = URL(string: news.imageUrl ?? "") else { return }
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
                 print(error?.localizedDescription ?? "No error description")
