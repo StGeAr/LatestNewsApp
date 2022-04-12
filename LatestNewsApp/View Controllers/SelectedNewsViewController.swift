@@ -10,6 +10,7 @@ import UIKit
 class SelectedNewsViewController: UIViewController {
     
     // MARK: - IBOutlets
+    @IBOutlet var moreInfoButton: UIButton!
     @IBOutlet var newsTitle: UILabel!
     @IBOutlet var newsDescription: UILabel!
     @IBOutlet var newsAuthor: UILabel!
@@ -26,6 +27,7 @@ class SelectedNewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showNewsDetails()
+        hideButton()
     }
         
     // MARK: - Navigation
@@ -57,6 +59,13 @@ class SelectedNewsViewController: UIViewController {
         NetworkManager.shared.fetchImage(from: news.imageUrl) { imageData in
             self.newsImage.image = UIImage(data: imageData)
             activityIndicator.stopAnimating()
+        }
+    }
+    
+    private func hideButton() {
+        let content = news.readMoreUrl
+        if content == nil {
+            moreInfoButton.isHidden = true
         }
     }
 }

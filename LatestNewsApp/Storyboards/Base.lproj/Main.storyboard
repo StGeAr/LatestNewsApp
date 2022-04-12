@@ -121,7 +121,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Reed more..."/>
                                 <connections>
-                                    <segue destination="zzP-c3-jrr" kind="presentation" id="a4X-TA-LX5"/>
+                                    <segue destination="zzP-c3-jrr" kind="show" id="a4X-TA-LX5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -141,6 +141,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="K3T-ce-qWJ"/>
                     <connections>
+                        <outlet property="moreInfoButton" destination="PRv-WD-HoQ" id="o3n-6p-hZL"/>
                         <outlet property="newsAuthor" destination="bgm-TC-1Oi" id="yAm-iM-OWv"/>
                         <outlet property="newsDescription" destination="tDc-ze-Fx4" id="Lbx-eU-M9U"/>
                         <outlet property="newsImage" destination="dFg-I5-eZu" id="mYy-c3-dPW"/>
@@ -156,11 +157,12 @@
             <objects>
                 <viewController title="NewsWebVersion" id="zzP-c3-jrr" customClass="NewsWebViewController" customModule="LatestNewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V2l-xd-vit">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6GF-FC-f4o"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="p0Q-Yc-eTz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFz-W4-spK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

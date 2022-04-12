@@ -20,7 +20,11 @@ class NewsWebViewController: UIViewController {
     override func viewDidLoad() {
         let activityIndicator = showSpinner(in: webView)
         guard let webUrl = newsUrl else { return }
-        guard let webUrlSring = webUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return }
+        guard
+            let webUrlSring = webUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        else {
+            return
+        }
         guard let url = URL(string: webUrlSring) else { return }
         let request = URLRequest(url: url)
         webView.load(request)
@@ -32,7 +36,7 @@ class NewsWebViewController: UIViewController {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.color = .systemGray
         activityIndicator.startAnimating()
-//        activityIndicator.center = view.center
+        activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
         
         view.addSubview(activityIndicator)
