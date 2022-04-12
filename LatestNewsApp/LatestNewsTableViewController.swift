@@ -51,6 +51,8 @@ class LatestNewsTableViewController: UITableViewController {
 
 extension LatestNewsTableViewController {
     func fetchNewsPage() {
+        let activityIndicator = showSpinner(in: tableView)
+        
         guard let url = URL(string: "https://inshortsapi.vercel.app/news?category=science") else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
@@ -63,11 +65,24 @@ extension LatestNewsTableViewController {
                 self.news = news.data ?? []
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    activityIndicator.stopAnimating()
                 }
             } catch let error {
                 print(error.localizedDescription)
             }
         }.resume()
+    }
+    
+    private func showSpinner(in view: UIView) -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .gray
+        activityIndicator.startAnimating()
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        
+        view.addSubview(activityIndicator)
+        
+        return activityIndicator
     }
 }
 
