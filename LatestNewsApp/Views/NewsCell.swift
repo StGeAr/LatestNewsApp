@@ -8,6 +8,8 @@
 import UIKit
 
 class NewsCell: UITableViewCell {
+    
+    // MARK:- IBOutlets
     @IBOutlet var newsTitle: UILabel!
     @IBOutlet var publicationDate: UILabel!
     @IBOutlet var newsImage: UIImageView! {
@@ -16,7 +18,7 @@ class NewsCell: UITableViewCell {
         }
     }
     
-    
+    // MARK: - Public methods
     func configure(with news: News) {
         newsTitle.text = news.title
         publicationDate.text = news.date

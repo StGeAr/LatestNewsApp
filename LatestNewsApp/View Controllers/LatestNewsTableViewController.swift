@@ -14,7 +14,7 @@ class LatestNewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 110
-        fetchNewsPage()
+        fetchData(from: "https://inshortsapi.vercel.app/news?category=science")
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,32 +50,9 @@ class LatestNewsTableViewController: UITableViewController {
 }
 
 extension LatestNewsTableViewController {
-    func fetchNewsPage() {
-        let activityIndicator = showSpinner(in: tableView)
-        
-        guard let url = URL(string: "https://inshortsapi.vercel.app/news?category=science") else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            do {
-                let news = try JSONDecoder().decode(NewsPage.self, from: data)
-                self.news = news.data ?? []
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    activityIndicator.stopAnimating()
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        }.resume()
-    }
-    
     private func showSpinner(in view: UIView) -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = .gray
+        activityIndicator.color = .systemGray
         activityIndicator.startAnimating()
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
@@ -83,6 +60,16 @@ extension LatestNewsTableViewController {
         view.addSubview(activityIndicator)
         
         return activityIndicator
+    }
+    
+    private func fetchData(from url: String?) {
+        let activityIndicator = showSpinner(in: tableView)
+        
+        NetworkManager.shared.fetchData(from: url) { NewsPage in
+            self.news = NewsPage.data ?? []
+            self.tableView.reloadData()
+            activityIndicator.stopAnimating()
+        }
     }
 }
 
