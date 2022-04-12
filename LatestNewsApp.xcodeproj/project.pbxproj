@@ -17,7 +17,7 @@
 		DE0C75C9280067AD00FF10B8 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C75C8280067AD00FF10B8 /* News.swift */; };
 		DE0C75CB280074D900FF10B8 /* SelectedNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C75CA280074D900FF10B8 /* SelectedNewsViewController.swift */; };
 		DE0C75CD2800776700FF10B8 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C75CC2800776700FF10B8 /* NewsCell.swift */; };
-		DE0C75CF280341A600FF10B8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C75CE280341A600FF10B8 /* NetworkManager.swift */; };
+		DE0C75D82805C12F00FF10B8 /* NeworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C75D72805C12F00FF10B8 /* NeworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		DE0C75C8280067AD00FF10B8 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		DE0C75CA280074D900FF10B8 /* SelectedNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsViewController.swift; sourceTree = "<group>"; };
 		DE0C75CC2800776700FF10B8 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
-		DE0C75CE280341A600FF10B8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DE0C75D72805C12F00FF10B8 /* NeworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 		DE0C75D32805B1FE00FF10B8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DE0C75CE280341A600FF10B8 /* NetworkManager.swift */,
+				DE0C75D72805C12F00FF10B8 /* NeworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -212,11 +212,11 @@
 				DE0C75B5280050C900FF10B8 /* LatestNewsTableViewController.swift in Sources */,
 				DE0C75CB280074D900FF10B8 /* SelectedNewsViewController.swift in Sources */,
 				DE0C75C9280067AD00FF10B8 /* News.swift in Sources */,
-				DE0C75CF280341A600FF10B8 /* NetworkManager.swift in Sources */,
 				DE0C75B1280050C900FF10B8 /* AppDelegate.swift in Sources */,
 				DE0C75C7280066DA00FF10B8 /* NewsWebViewController.swift in Sources */,
 				DE0C75CD2800776700FF10B8 /* NewsCell.swift in Sources */,
 				DE0C75B3280050C900FF10B8 /* SceneDelegate.swift in Sources */,
+				DE0C75D82805C12F00FF10B8 /* NeworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
