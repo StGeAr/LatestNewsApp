@@ -9,47 +9,54 @@ import UIKit
 
 class SelectedNewsViewController: UIViewController {
     
-    @IBOutlet var newsImage: UIImageView!
+    // MARK: - IBOutlets
     @IBOutlet var newsTitle: UILabel!
     @IBOutlet var newsDescription: UILabel!
     @IBOutlet var newsAuthor: UILabel!
+    @IBOutlet var newsImage: UIImageView! {
+        didSet {
+            newsImage.layer.cornerRadius = 15
+        }
+    }
     
+    // MARK: - Public properties
     var news: News!
     
+    // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         showNewsDetails()
     }
         
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let newsWebVC = segue.destination as? NewsWebViewController else { return }
-        guard let someUrl = news.readMoreUrl else { return }
-        newsWebVC.newsUrl = someUrl
+        newsWebVC.newsUrl = news.readMoreUrl
     }
-
-    @IBAction func readMore() {
-        performSegue(withIdentifier: "showWeb", sender: nil)
+    
+    // MARK: - Private methods
+    private func showSpinner(in view: UIView) -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .systemGray
+        activityIndicator.startAnimating()
+//        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        
+        view.addSubview(activityIndicator)
+        
+        return activityIndicator
     }
-}
-
-extension SelectedNewsViewController {
-    func showNewsDetails() {
+    
+    private func showNewsDetails() {
+        let activityIndicator = showSpinner(in: newsImage)
+        
         newsTitle.text = news.title
         newsDescription.text = news.content
         newsAuthor.text = news.author
         
-        guard let url = URL(string: news.imageUrl ?? "") else { return }
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-
-            DispatchQueue.main.async {
-                self.newsImage.image = UIImage(data: data)
-                self.newsImage.layer.cornerRadius = 15
-            }
-        }.resume()
+        NetworkManager.shared.fetchImage(from: news.imageUrl) { imageData in
+            self.newsImage.image = UIImage(data: imageData)
+            activityIndicator.stopAnimating()
+        }
     }
 }
-

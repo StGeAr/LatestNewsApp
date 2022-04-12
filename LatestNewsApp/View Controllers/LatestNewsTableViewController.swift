@@ -9,14 +9,17 @@ import UIKit
 
 class LatestNewsTableViewController: UITableViewController {
     
+    //MARK: - Private properties
     private var news: [News] = []
 
+    // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 110
         fetchData(from: "https://inshortsapi.vercel.app/news?category=science")
     }
     
+    // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         news.count
     }
@@ -43,13 +46,13 @@ class LatestNewsTableViewController: UITableViewController {
         performSegue(withIdentifier: "showNews", sender: news)
     }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let selectedNewsVC = segue.destination as? SelectedNewsViewController else { return }
         selectedNewsVC.news = sender as? News
     }
-}
-
-extension LatestNewsTableViewController {
+    
+    // MARK: - Private methods
     private func showSpinner(in view: UIView) -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.color = .systemGray

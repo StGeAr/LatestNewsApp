@@ -10,14 +10,33 @@ import WebKit
 
 class NewsWebViewController: UIViewController {
 
+    // MARK: - Public properties
     var newsUrl: String!
     
-    private var webView: WKWebView!
+    //MARK: - Private properties
+    var webView: WKWebView!
     
-    override func viewDidLoad() { 
-        guard let url = URL(string: newsUrl) else { return }
+    // MARK: - Life Cycles Methods
+    override func viewDidLoad() {
+        let activityIndicator = showSpinner(in: webView)
+        guard let webUrl = newsUrl else { return }
+        guard let url = URL(string: webUrl) else { return }
         let request = URLRequest(url: url)
         webView.load(request)
+        activityIndicator.stopAnimating()
+    }
+    
+    // MARK: - Private methods
+    private func showSpinner(in view: UIView) -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .systemGray
+        activityIndicator.startAnimating()
+//        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        
+        view.addSubview(activityIndicator)
+        
+        return activityIndicator
     }
 }
 

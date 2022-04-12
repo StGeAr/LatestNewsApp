@@ -121,8 +121,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Reed more..."/>
                                 <connections>
-                                    <action selector="readMore" destination="7ga-Vp-Cnn" eventType="touchUpInside" id="GHj-i7-nhE"/>
-                                    <segue destination="zzP-c3-jrr" kind="presentation" identifier="showWeb" id="3Xt-9V-avX"/>
+                                    <segue destination="zzP-c3-jrr" kind="presentation" id="a4X-TA-LX5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -159,24 +158,8 @@
                     <view key="view" contentMode="scaleToFill" id="V2l-xd-vit">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KR3-0U-bUi">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6GF-FC-f4o"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="KR3-0U-bUi" secondAttribute="bottom" id="77a-HQ-v2Z"/>
-                            <constraint firstItem="KR3-0U-bUi" firstAttribute="top" secondItem="V2l-xd-vit" secondAttribute="top" id="TPE-oR-7W3"/>
-                            <constraint firstItem="KR3-0U-bUi" firstAttribute="trailing" secondItem="6GF-FC-f4o" secondAttribute="trailing" id="oD2-zX-qNF"/>
-                            <constraint firstItem="KR3-0U-bUi" firstAttribute="leading" secondItem="6GF-FC-f4o" secondAttribute="leading" id="ur1-oX-zgx"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFz-W4-spK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
