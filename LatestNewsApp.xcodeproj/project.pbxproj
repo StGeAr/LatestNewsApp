@@ -66,20 +66,76 @@
 		DE0C75AF280050C900FF10B8 /* LatestNewsApp */ = {
 			isa = PBXGroup;
 			children = (
-				DE0C75B6280050C900FF10B8 /* Main.storyboard */,
+				DE0C75D42805B21900FF10B8 /* Storyboards */,
+				DE0C75D12805B1BC00FF10B8 /* View Controllers */,
+				DE0C75D22805B1E600FF10B8 /* Views */,
+				DE0C75D02805B1A600FF10B8 /* Models */,
+				DE0C75D32805B1FE00FF10B8 /* Services */,
+				DE0C75D52805B22F00FF10B8 /* App */,
+				DE0C75D62805B23F00FF10B8 /* Sources */,
+			);
+			path = LatestNewsApp;
+			sourceTree = "<group>";
+		};
+		DE0C75D02805B1A600FF10B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DE0C75C8280067AD00FF10B8 /* News.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DE0C75D12805B1BC00FF10B8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				DE0C75B4280050C900FF10B8 /* LatestNewsTableViewController.swift */,
 				DE0C75CA280074D900FF10B8 /* SelectedNewsViewController.swift */,
 				DE0C75C6280066DA00FF10B8 /* NewsWebViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		DE0C75D22805B1E600FF10B8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				DE0C75CC2800776700FF10B8 /* NewsCell.swift */,
-				DE0C75C8280067AD00FF10B8 /* News.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE0C75D32805B1FE00FF10B8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
 				DE0C75CE280341A600FF10B8 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DE0C75D42805B21900FF10B8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				DE0C75B6280050C900FF10B8 /* Main.storyboard */,
+				DE0C75BB280050CA00FF10B8 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		DE0C75D52805B22F00FF10B8 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				DE0C75B2280050C900FF10B8 /* SceneDelegate.swift */,
 				DE0C75B0280050C900FF10B8 /* AppDelegate.swift */,
-				DE0C75B9280050CA00FF10B8 /* Assets.xcassets */,
-				DE0C75BB280050CA00FF10B8 /* LaunchScreen.storyboard */,
 				DE0C75BE280050CA00FF10B8 /* Info.plist */,
 			);
-			path = LatestNewsApp;
+			path = App;
+			sourceTree = "<group>";
+		};
+		DE0C75D62805B23F00FF10B8 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DE0C75B9280050CA00FF10B8 /* Assets.xcassets */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
