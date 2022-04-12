@@ -20,7 +20,8 @@ class NewsWebViewController: UIViewController {
     override func viewDidLoad() {
         let activityIndicator = showSpinner(in: webView)
         guard let webUrl = newsUrl else { return }
-        guard let url = URL(string: webUrl) else { return }
+        guard let webUrlSring = webUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return }
+        guard let url = URL(string: webUrlSring) else { return }
         let request = URLRequest(url: url)
         webView.load(request)
         activityIndicator.stopAnimating()
@@ -40,6 +41,7 @@ class NewsWebViewController: UIViewController {
     }
 }
 
+// MARK: - WKUIDelegate
 extension NewsWebViewController: WKUIDelegate {
     override func loadView() {
         let webConfig = WKWebViewConfiguration()
