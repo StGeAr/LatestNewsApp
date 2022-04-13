@@ -23,7 +23,7 @@ class LatestNewsTableViewController: UITableViewController {
         else {
             return
         }
-        fetchData(from: categoryUrlString)
+        fetchNews(from: categoryUrlString)
     }
     
     // MARK: - Table view data source
@@ -71,7 +71,7 @@ class LatestNewsTableViewController: UITableViewController {
         return activityIndicator
     }
     
-    private func fetchData(from url: String?) {
+    private func fetchNews(from url: String?) {
         let activityIndicator = showSpinner(in: tableView)
         
         NetworkManager.shared.fetchData(from: url) { NewsPage in
