@@ -81,16 +81,28 @@ class LatestNewsTableViewController: UITableViewController {
 //            activityIndicator.stopAnimating()
 //        }
         
+//        NetworkManager.shared.fetchDataWithAlamofire(url) { result in
+//            switch result {
+//            case .success(let newsPage):
+//                self.news = newsPage.data ?? []
+//                self.tableView.reloadData()
+//                activityIndicator.stopAnimating()
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+        
         NetworkManager.shared.fetchDataWithAlamofire(url) { result in
             switch result {
-            case .success(let newsPage):
-                self.news = newsPage.data ?? []
+            case .success(let news):
+                self.news = news
                 self.tableView.reloadData()
                 activityIndicator.stopAnimating()
             case .failure(let error):
                 print(error)
             }
         }
+
     }
 }
 

@@ -19,6 +19,7 @@ struct NewsPage: Codable {
         let newsPage = NewsPage(newsPageData: newsPageData)
         return newsPage
     }
+    
 }
 
 struct News: Codable {
@@ -38,9 +39,10 @@ struct News: Codable {
         title = newsData["title"] as? String
     }
     
-//    static func transformToNews(data: Any) -> [News] {
-//        guard let data = data as? [[String:Any]] else { return [] }
-//        return data.compactMap { News(newsData: $0) }
-//    }
+    static func getNews(from value: Any) -> [News] {
+        guard let data = value as? [String:Any] else { return [] }
+        guard let news = data["data"] as? [[String:Any]] else { return [] }
+        return news.compactMap { News(newsData: $0) }
+    }
 }
 
