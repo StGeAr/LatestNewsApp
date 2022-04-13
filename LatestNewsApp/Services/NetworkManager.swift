@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum NetworkError: Error {
     case invalidURL
@@ -49,5 +50,34 @@ class NetworkManager {
             }
         }
     }
+    
+    func fetchDataWithAlamofire(_ url: String, completion: @escaping(Result<NewsPage, NetworkError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    guard let newsPage = NewsPage.getNewsPage(from: value) else { return }
+                    completion(.success(newsPage))
+                case .failure(let error):
+                    print(error)
+                    completion(.failure(.decodingError))
+                }
+            }
+    }
+    
+//    func fetchDataWithAlamofire(_ url: String, completion: @escaping(Result<News, NetworkError>) -> Void) {
+//        AF.request(url)
+//            .validate()
+//            .responseJSON { dataResponse  in
+//                switch dataResponse.result {
+//                case .success(let value):
+//                    guard let newsPage = NewsPage.getNewsPage(from: value) else { return }
+//                    completion(.success(newsPage))
+//                case .failure(_):
+//                    <#code#>
+//                }
+//            }
+//    }
 }
 

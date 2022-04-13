@@ -29,7 +29,7 @@ class NewsWebViewController: UIViewController {
         let request = URLRequest(url: url)
         webView.load(request)
         activityIndicator.stopAnimating()
-    }
+    }  
     
     // MARK: - Private methods
     private func showSpinner(in view: UIView) -> UIActivityIndicatorView {

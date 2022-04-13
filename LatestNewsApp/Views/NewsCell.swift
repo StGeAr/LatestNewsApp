@@ -20,7 +20,7 @@ class NewsCell: UITableViewCell {
     
     // MARK: - Public methods
     func configure(with news: News) {
-        newsTitle.text = news.title
+        newsTitle.text = news.title 
         publicationDate.text = news.date
         
         NetworkManager.shared.fetchImage(from: news.imageUrl) { imageData in
