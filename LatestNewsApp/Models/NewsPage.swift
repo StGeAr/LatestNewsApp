@@ -5,7 +5,6 @@
 //  Created by Герман Ставицкий on 08.04.2022.
 //
 
-
 struct NewsPage: Codable {
     let category: String?
     let data: [News]?
@@ -29,5 +28,20 @@ struct News: Codable {
     let imageUrl: String?
     let readMoreUrl: String?
     let title: String?
+    
+    init(newsData: [String: Any]) {
+        author = newsData["author"] as? String
+        content = newsData["content"] as? String
+        date = newsData["date"] as? String
+        imageUrl = newsData["imageUrl"] as? String
+        readMoreUrl = newsData["readMoreUrl"] as? String
+        title = newsData["title"] as? String
+    }
+    
+    static func getNews(from value: Any) -> News? {
+        guard let newsData = value as? [String: Any] else { return nil }
+        let news = News(newsData: newsData)
+        return news
+    }
 }
 

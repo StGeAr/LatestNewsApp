@@ -28,7 +28,6 @@ class NetworkManager {
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
-            
             do {
                 let NewsPage = try JSONDecoder().decode(NewsPage.self, from: data)
                 DispatchQueue.main.async {
@@ -41,10 +40,10 @@ class NetworkManager {
     }
     
     func fetchImage(from url: String?, with completion: @escaping(Data) -> Void) {
-        guard let stringURL = url else { return }
-        guard let imageURL = URL(string: stringURL) else { return }
+        guard let stringUrl = url else { return }
+        guard let imageUrl = URL(string: stringUrl) else { return }
         DispatchQueue.global().async {
-            guard let data = try? Data(contentsOf: imageURL) else { return }
+            guard let data = try? Data(contentsOf: imageUrl) else { return }
             DispatchQueue.main.async {
                 completion(data)
             }
@@ -58,6 +57,7 @@ class NetworkManager {
                 switch dataResponse.result {
                 case .success(let value):
                     guard let newsPage = NewsPage.getNewsPage(from: value) else { return }
+                    print(newsPage)
                     completion(.success(newsPage))
                 case .failure(let error):
                     print(error)
@@ -66,17 +66,21 @@ class NetworkManager {
             }
     }
     
-//    func fetchDataWithAlamofire(_ url: String, completion: @escaping(Result<News, NetworkError>) -> Void) {
+//    func fetchImageWithAlamofire(_ url: String, completion: @escaping(Result<Data, NetworkError>) -> Void) {
 //        AF.request(url)
 //            .validate()
-//            .responseJSON { dataResponse  in
-//                switch dataResponse.result {
-//                case .success(let value):
-//                    guard let newsPage = NewsPage.getNewsPage(from: value) else { return }
-//                    completion(.success(newsPage))
-//                case .failure(_):
-//                    <#code#>
-//                }
+//            .responseData { dataResponse in
+////                switch dataResponse.result {
+////                case .success(let data):
+////                    guard let imageUrl = URL(string: image) else { return }
+////                    guard let data = try? Data(contentsOf: imageUrl) else { return }
+////                    completion(.success(data))
+////                case .failure(let error):
+////                    print(error)
+////                    completion(.failure(.decodingError))
+////                }
+//                let data = dataResponse.result.value
+//                let image = UIImage(data: data)
 //            }
 //    }
 }

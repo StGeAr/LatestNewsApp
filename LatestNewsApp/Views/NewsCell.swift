@@ -26,5 +26,14 @@ class NewsCell: UITableViewCell {
         NetworkManager.shared.fetchImage(from: news.imageUrl) { imageData in
             self.newsImage.image = UIImage(data: imageData)
         }
+        
+//        NetworkManager.shared.fetchImageWithAlamofire(news.imageUrl ?? "") { result in
+//            switch result {
+//            case .success(let imageData):
+//                self.newsImage.image = UIImage(data: imageData)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
 }
