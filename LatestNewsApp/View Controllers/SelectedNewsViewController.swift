@@ -56,9 +56,19 @@ class SelectedNewsViewController: UIViewController {
         newsDescription.text = news.content
         newsAuthor.text = news.author
         
-        NetworkManager.shared.fetchImage(from: news.imageUrl) { imageData in
-            self.newsImage.image = UIImage(data: imageData)
-            activityIndicator.stopAnimating()
+//        NetworkManager.shared.fetchImage(from: news.imageUrl) { imageData in
+//            self.newsImage.image = UIImage(data: imageData)
+//            activityIndicator.stopAnimating()
+//        }
+        
+        NetworkManager.shared.fetchImageWithAlamofire(news.imageUrl ?? "") { result in
+            switch result {
+            case .success(let imageData):
+                self.newsImage.image = UIImage(data: imageData)
+                activityIndicator.stopAnimating()
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     

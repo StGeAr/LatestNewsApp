@@ -37,11 +37,5 @@ struct News: Codable {
         readMoreUrl = newsData["readMoreUrl"] as? String
         title = newsData["title"] as? String
     }
-    
-    static func getNews(from value: Any) -> News? {
-        guard let newsData = value as? [String: Any] else { return nil }
-        let news = News(newsData: newsData)
-        return news
-    }
 }
 
