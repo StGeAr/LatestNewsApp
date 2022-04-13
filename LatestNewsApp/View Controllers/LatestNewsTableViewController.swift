@@ -17,8 +17,7 @@ class LatestNewsTableViewController: UITableViewController {
     // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 110
-        print(categoryUrl)
+        tableView.rowHeight = 115
         guard
             let categoryUrlString = categoryUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         else {
