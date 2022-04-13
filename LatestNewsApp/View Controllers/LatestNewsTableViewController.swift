@@ -9,6 +9,8 @@ import UIKit
 
 class LatestNewsTableViewController: UITableViewController {
     
+    var categoryUrl: String!
+    
     //MARK: - Private properties
     private var news: [News] = []
 
@@ -16,7 +18,13 @@ class LatestNewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 110
-        fetchData(from: "https://inshortsapi.vercel.app/news?category=science")
+        print(categoryUrl)
+        guard
+            let categoryUrlString = categoryUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        else {
+            return
+        }
+        fetchData(from: categoryUrlString)
     }
     
     // MARK: - Table view data source
@@ -32,7 +40,6 @@ class LatestNewsTableViewController: UITableViewController {
                ) as? NewsCell
         else {
             return UITableViewCell()
-            
         }
         
         let news = news[indexPath.row]
