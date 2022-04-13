@@ -74,23 +74,23 @@ class LatestNewsTableViewController: UITableViewController {
     private func fetchNews(from url: String) {
         let activityIndicator = showSpinner(in: tableView)
         
-        NetworkManager.shared.fetchData(from: url) { NewsPage in
-            self.news = NewsPage.data ?? []
-            self.title = "Lates \(NewsPage.category ?? "nil") news"
-            self.tableView.reloadData()
-            activityIndicator.stopAnimating()
-        }
-        
-//        NetworkManager.shared.fetchDataWithAlamofire(url) { result in
-//            switch result {
-//            case .success(let newsPage):
-//                self.news = newsPage.data ?? []
-//                self.tableView.reloadData()
-//                activityIndicator.stopAnimating()
-//            case .failure(let error):
-//                print(error)
-//            }
+//        NetworkManager.shared.fetchData(from: url) { NewsPage in
+//            self.news = NewsPage.data ?? []
+//            self.title = "Lates \(NewsPage.category ?? "nil") news"
+//            self.tableView.reloadData()
+//            activityIndicator.stopAnimating()
 //        }
+        
+        NetworkManager.shared.fetchDataWithAlamofire(url) { result in
+            switch result {
+            case .success(let newsPage):
+                self.news = newsPage.data ?? []
+                self.tableView.reloadData()
+                activityIndicator.stopAnimating()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 

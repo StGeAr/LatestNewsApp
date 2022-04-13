@@ -37,5 +37,10 @@ struct News: Codable {
         readMoreUrl = newsData["readMoreUrl"] as? String
         title = newsData["title"] as? String
     }
+    
+    static func transformToNews(data: Any) -> [News] {
+        guard let data = data as? [[String:Any]] else { return [] }
+        return data.compactMap { News(newsData: $0) }
+    }
 }
 
