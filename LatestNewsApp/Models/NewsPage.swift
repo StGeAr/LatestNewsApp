@@ -6,20 +6,11 @@
 //
 
 struct NewsPage: Codable {
-    let category: String?
     let data: [News]?
     
     init(newsPageData: [String: Any]) {
-        category = newsPageData["category"] as? String
         data = newsPageData["data"] as? [News]
     }
-    
-    static func getNewsPage(from value: Any) -> NewsPage? {
-        guard let newsPageData = value as? [String: Any] else { return nil }
-        let newsPage = NewsPage(newsPageData: newsPageData)
-        return newsPage
-    }
-    
 }
 
 struct News: Codable {
