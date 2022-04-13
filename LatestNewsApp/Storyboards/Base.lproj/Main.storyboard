@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Latest News Table View Controller-->
+        <!--Latest news-->
         <scene sceneID="cvN-2k-XAt">
             <objects>
                 <tableViewController id="1kD-cx-nrd" customClass="LatestNewsTableViewController" customModule="LatestNewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,7 +67,7 @@
                             <outlet property="delegate" destination="1kD-cx-nrd" id="HrM-e1-75l"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="VP3-5E-aTP"/>
+                    <navigationItem key="navigationItem" title="Latest news" largeTitleDisplayMode="never" id="VP3-5E-aTP"/>
                     <connections>
                         <segue destination="7ga-Vp-Cnn" kind="show" identifier="showNews" id="K9O-dZ-OZu"/>
                     </connections>

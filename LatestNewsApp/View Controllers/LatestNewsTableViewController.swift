@@ -9,6 +9,7 @@ import UIKit
 
 class LatestNewsTableViewController: UITableViewController {
     
+    //MARK: - Public properties
     var categoryUrl: String!
     
     //MARK: - Private properties
@@ -76,20 +77,8 @@ class LatestNewsTableViewController: UITableViewController {
         
 //        NetworkManager.shared.fetchData(from: url) { NewsPage in
 //            self.news = NewsPage.data ?? []
-//            self.title = "Lates \(NewsPage.category ?? "nil") news"
 //            self.tableView.reloadData()
 //            activityIndicator.stopAnimating()
-//        }
-        
-//        NetworkManager.shared.fetchDataWithAlamofire(url) { result in
-//            switch result {
-//            case .success(let newsPage):
-//                self.news = newsPage.data ?? []
-//                self.tableView.reloadData()
-//                activityIndicator.stopAnimating()
-//            case .failure(let error):
-//                print(error)
-//            }
 //        }
         
         NetworkManager.shared.fetchDataWithAlamofire(url) { result in
@@ -102,7 +91,6 @@ class LatestNewsTableViewController: UITableViewController {
                 print(error)
             }
         }
-
     }
 }
 

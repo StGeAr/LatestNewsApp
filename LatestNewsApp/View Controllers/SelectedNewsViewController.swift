@@ -41,7 +41,7 @@ class SelectedNewsViewController: UIViewController {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.color = .systemGray
         activityIndicator.startAnimating()
-//        activityIndicator.center = view.center
+        activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
         
         view.addSubview(activityIndicator)

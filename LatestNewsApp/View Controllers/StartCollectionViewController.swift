@@ -11,7 +11,8 @@ private let reuseIdentifier = "Cell"
 
 class StartCollectionViewController: UICollectionViewController {
     
-    let category = DataManager.shared.category
+    //MARK: - Private properties
+    private let category = DataManager.shared.category
     
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
